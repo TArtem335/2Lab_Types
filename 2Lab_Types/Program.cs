@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace _2Lab_Types
 {
@@ -7,6 +8,7 @@ namespace _2Lab_Types
         static void Main(string[] args)
         {
             // Задание 1a.
+            Console.WriteLine("----------------Задание 1a----------------");
             bool flag = false;
 
             byte bNumber = 112;
@@ -100,6 +102,7 @@ namespace _2Lab_Types
             int intNumber2 = (int)intWrap;
 
             // Задание 1d.
+            Console.WriteLine("----------------Задание 1d----------------");
             var someVariable1 = 54;
             var someVariable2 = "Some text";
             Console.WriteLine($"Первая неявно типизированная переменная: {someVariable1}");
@@ -109,6 +112,7 @@ namespace _2Lab_Types
             Console.Clear();
 
             // Задание 1e.
+            Console.WriteLine("----------------Задание 1e----------------");
             int? nullableNumber = null;
 
             Random rng = new Random();
@@ -131,9 +135,133 @@ namespace _2Lab_Types
             Console.Clear();
 
             // Задание 1f.
+            Console.WriteLine("----------------Задание 1f----------------");
             var someVarVaruable = "Hello There";
             Console.WriteLine($"Переменная типа var: {someVarVaruable}");
             //someVarVaruable = 5;
+
+            Console.ReadKey();
+            Console.Clear();
+
+            // Задание 2a.
+            Console.WriteLine("----------------Задание 2a----------------");
+            string word1 = "First string";
+            string word2 = "Second string";
+            string word3 = "First string";
+
+            Console.WriteLine($"Строка 1: {word1}");
+            Console.WriteLine($"Строка 2: {word2}");
+            Console.WriteLine($"Строка 3: {word3}");
+            Console.WriteLine("");
+
+            if (word1 == word2)
+            {
+                Console.WriteLine($"Строка 1 = строке 2");
+            }
+            else
+            {
+                Console.WriteLine($"Строка 1 != строке 2");
+            }
+
+            if (word2 == word3)
+            {
+                Console.WriteLine($"Строка 2 = строке 3");
+            }
+            else
+            {
+                Console.WriteLine($"Строка 2 != строке 3");
+            }
+
+            if (word1 == word3)
+            {
+                Console.WriteLine($"Строка 1 = строке 3");
+            }
+            else
+            {
+                Console.WriteLine($"Строка 1 != строке 3");
+            }
+
+            Console.ReadKey();
+            Console.Clear();
+
+            // Задание 2b.
+            Console.WriteLine("----------------Задание 2b----------------");
+            Console.WriteLine($"Строка 1: {word1}");
+            Console.WriteLine($"Строка 2: {word2}");
+            Console.WriteLine($"Строка 3: {word3}");
+            Console.WriteLine("");
+
+            Console.WriteLine($"Конкатанация: {word1 + word2}");
+            string word4 = (string)word1.Clone();
+            Console.WriteLine($"Копирование: {word4}");
+            Console.WriteLine($"Выделение подстроки строки {word4} (5 элементов начиная с 3 позиции): {word4.Substring(2, 5)}");
+
+            Console.WriteLine();
+            string sentence = "Some example of very very long sentence";
+            string[] words = sentence.Split(' ');
+            Console.WriteLine($"Начальная строка: {sentence}");
+            Console.Write("Разделение строки на слова: ");
+            foreach (string wordI in words)
+            {
+                Console.Write($"{wordI}, ");
+            }
+            Console.WriteLine();
+
+            Console.WriteLine($"Вставка подстроки (с 2 позиции): {word4.Insert(2, word2)}");
+            Console.WriteLine($"Удаление подстроки (3 элементов начиная с 2 позиции): {word4.Remove(1, 3)}");
+
+            Console.ReadKey();
+            Console.Clear();
+
+            // Задание 2c.
+            Console.WriteLine("----------------Задание 2c----------------");
+            string wordEmpty = "";
+            string wordNull = null;
+
+            if (string.IsNullOrEmpty(wordEmpty))
+            {
+                Console.WriteLine("Строка wordEmpty пуста или равна null");
+            }
+            else
+            {
+                Console.WriteLine("Строка wordEmpty не пуста и не равна null");
+            }
+
+            if (string.IsNullOrEmpty(wordNull))
+            {
+                Console.WriteLine("Строка wordNull пуста или равна null");
+            }
+            else
+            {
+                Console.WriteLine("Строка wordNull не пуста и не равна null");
+            }
+
+            if (string.IsNullOrEmpty(word4))
+            {
+                Console.WriteLine("Строка word4 пуста или равна null");
+            }
+            else
+            {
+                Console.WriteLine("Строка word4 не пуста и не равна null");
+            }
+
+            Console.ReadKey();
+            Console.Clear();
+
+            // Задание 2c.
+            Console.WriteLine("----------------Задание 2c----------------");
+            StringBuilder stringBuild = new StringBuilder("АЛЫЛВЫЛ", 30);
+            Console.WriteLine($"Строка, содержащая {stringBuild.Length} символов: {stringBuild.ToString()}");
+            stringBuild.Append(new char[] { 'А', 'В', 'Д' });
+            Console.WriteLine($"Строка, содержащая {stringBuild.Length} символов: {stringBuild.ToString()}");
+            stringBuild.Insert(0, "Случайные большие буквы: ");
+            Console.WriteLine($"Строка, содержащая {stringBuild.Length} символов: {stringBuild.ToString()}");
+            stringBuild.Insert(stringBuild.Length, " - случайные большие буквы (не только)");
+            Console.WriteLine($"Строка, содержащая {stringBuild.Length} символов: {stringBuild.ToString()}");
+            stringBuild.Replace('А', 'о');
+            Console.WriteLine($"Строка, содержащая {stringBuild.Length} символов: {stringBuild.ToString()}");
+            stringBuild.Remove(7, 3);
+            Console.WriteLine($"Строка, содержащая {stringBuild.Length} символов: {stringBuild.ToString()}");
 
             Console.ReadKey();
             Console.Clear();
