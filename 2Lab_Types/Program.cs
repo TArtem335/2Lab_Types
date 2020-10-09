@@ -12,7 +12,7 @@ namespace _2Lab_Types
             bool flag = false;
 
             byte bNumber = 112;
-            sbyte sbNumber =-34;
+            sbyte sbNumber = -34;
             short sNumber = -25000;
             ushort usNumber = 57000;
             int intNumber = -23423424;
@@ -355,6 +355,56 @@ namespace _2Lab_Types
             }
             Console.WriteLine();
             Console.WriteLine($"Неявно типизированна строка - {someStr}");
+
+            Console.ReadKey();
+            Console.Clear();
+
+            // Задание 4.
+            Console.WriteLine("----------------Задание 4----------------");
+            (int, string, char, string, ulong) turpleVariable = (5, "Text", 'o', "txt", 234424);
+
+            Console.WriteLine($"Кортеж - {turpleVariable}");
+            Console.WriteLine($"1 элемент кортежа - {turpleVariable.Item1}");
+            Console.WriteLine($"3 элемент кортежа - {turpleVariable.Item3}");
+            Console.WriteLine($"4 элемент кортежа - {turpleVariable.Item4}");
+            Console.WriteLine();
+
+            (int numberFrmTurple, string str1FrmTurple, char charFrmTurple, string str2FrmTurple, ulong ulongFrmTurple) = turpleVariable;
+            var (numberFrmTurple2, str1FrmTurple2, charFrmTurple2, str2FrmTurple2, ulongFrmTurple2) = turpleVariable;
+            int numberFrmTurple3 = turpleVariable.Item1;
+
+            (int, string, char, string, ulong) turpleVariable2 = turpleVariable;
+            (int, string, char, string, ulong) turpleVariable3 = (6, "Dsdffs", 'g', "sfdsfs", 924242535);
+            Console.WriteLine($"Кортеж 1 - {turpleVariable}");
+            Console.WriteLine($"Кортеж 2 - {turpleVariable2}");
+            Console.WriteLine($"Кортеж 3 - {turpleVariable3}");
+            Console.WriteLine("");
+            if (turpleVariable == turpleVariable2)
+            {
+                Console.WriteLine($"Кортеж 1 = кортежу 2");
+            }
+            else
+            {
+                Console.WriteLine($"Кортеж 1 != кортежу 2");
+            }
+
+            if (turpleVariable2 == turpleVariable3)
+            {
+                Console.WriteLine($"Кортеж 2 = кортежу 3");
+            }
+            else
+            {
+                Console.WriteLine($"Кортеж 2 != кортежу 3");
+            }
+
+            if (turpleVariable == turpleVariable3)
+            {
+                Console.WriteLine($"Кортеж 1 = кортежу 3");
+            }
+            else
+            {
+                Console.WriteLine($"Строка 1 != строке 3");
+            }
 
             Console.ReadKey();
             Console.Clear();
