@@ -196,7 +196,6 @@ namespace _2Lab_Types
             Console.WriteLine($"Копирование: {word4}");
             Console.WriteLine($"Выделение подстроки строки {word4} (5 элементов начиная с 3 позиции): {word4.Substring(2, 5)}");
 
-            Console.WriteLine();
             string sentence = "Some example of very very long sentence";
             string[] words = sentence.Split(' ');
             Console.WriteLine($"Начальная строка: {sentence}");
@@ -248,20 +247,114 @@ namespace _2Lab_Types
             Console.ReadKey();
             Console.Clear();
 
-            // Задание 2c.
-            Console.WriteLine("----------------Задание 2c----------------");
+            // Задание 2d.
+            Console.WriteLine("----------------Задание 2d----------------");
             StringBuilder stringBuild = new StringBuilder("АЛЫЛВЫЛ", 30);
-            Console.WriteLine($"Строка, содержащая {stringBuild.Length} символов: {stringBuild.ToString()}");
+            Console.WriteLine($"Строка, содержащая {stringBuild.Length} символов: \n\t{stringBuild.ToString()}");
             stringBuild.Append(new char[] { 'А', 'В', 'Д' });
-            Console.WriteLine($"Строка, содержащая {stringBuild.Length} символов: {stringBuild.ToString()}");
+            Console.WriteLine($"Строка, после добавление символов А, В, Д: \n\t{stringBuild.ToString()}");
             stringBuild.Insert(0, "Случайные большие буквы: ");
-            Console.WriteLine($"Строка, содержащая {stringBuild.Length} символов: {stringBuild.ToString()}");
+            Console.WriteLine($"Строка, после добавления подстроки в начало: \n\t{stringBuild.ToString()}");
             stringBuild.Insert(stringBuild.Length, " - случайные большие буквы (не только)");
-            Console.WriteLine($"Строка, содержащая {stringBuild.Length} символов: {stringBuild.ToString()}");
+            Console.WriteLine($"Строка, после добавления подстроки в конец: \n\t{stringBuild.ToString()}");
             stringBuild.Replace('А', 'о');
-            Console.WriteLine($"Строка, содержащая {stringBuild.Length} символов: {stringBuild.ToString()}");
+            Console.WriteLine($"Строка, после замены символов А на о: \n\t{stringBuild.ToString()}");
             stringBuild.Remove(7, 3);
-            Console.WriteLine($"Строка, содержащая {stringBuild.Length} символов: {stringBuild.ToString()}");
+            Console.WriteLine($"Строка, после удаления подстроки: \n\t{stringBuild.ToString()}");
+
+            Console.ReadKey();
+            Console.Clear();
+
+            // Задание 3a.
+            Console.WriteLine("----------------Задание 3a----------------");
+            int[,] numbersArr = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 } };
+            for (int i = 0; i < numbersArr.GetUpperBound(0) + 1; ++i)
+            {
+                for (int j = 0; j < numbersArr.Length / (numbersArr.GetUpperBound(0) + 1); ++j)
+                {
+                    Console.Write("{0, 4}", numbersArr[i, j]);
+                }
+                Console.WriteLine();
+            }
+
+            Console.ReadKey();
+            Console.Clear();
+
+            // Задание 3b.
+            Console.WriteLine("----------------Задание 3b----------------");
+            string[] wordsArr = { "Первая строка", "Вторая строка", "Третья строка" };
+            for (int i = 0; i < wordsArr.Length; ++i)
+            {
+                Console.WriteLine(wordsArr[i]);
+            }
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine($"Длина массива (количество строк в массиве) - {wordsArr.Length}");
+            Console.WriteLine("--------------------------------------------------");
+            Console.Write("Введите номер строки, которую желаете изменить: ");
+            int arrIndex = Convert.ToInt32(Console.ReadLine()) - 1;
+            Console.Write("Введите текст: ");
+            wordsArr[arrIndex] = Console.ReadLine();
+            Console.WriteLine("--------------------------------------------------");
+            for (int i = 0; i < wordsArr.Length; ++i)
+            {
+                Console.WriteLine(wordsArr[i]);
+            }
+
+            Console.ReadKey();
+            Console.Clear();
+
+            // Задание 3c.
+            Console.WriteLine("----------------Задание 3c----------------");
+            float[][] juggedNumbersArr = new float[3][];
+            juggedNumbersArr[0] = new float[] { 1.234f, 2.234f };
+            juggedNumbersArr[1] = new float[] { 4.23f, 5.4f, 23.4f };
+            juggedNumbersArr[2] = new float[] { 6.23434f, 7f, 8.2f, 9.0f };
+
+            Console.WriteLine("Вы хотите ввести значение переменных(Y/N): ");
+            input = Convert.ToChar(Console.ReadLine());
+            if (input == 'Y' || input == 'y' || input == 'н' || input == 'Н')
+            {
+                for (int i = 0; i < 2; ++i)
+                {
+                    Console.Write($"Введите {i + 1} вещественное число для 1 массива: ");
+                    juggedNumbersArr[0][i] = Convert.ToSingle(Console.ReadLine());
+                }
+                for (int i = 0; i < 3; ++i)
+                {
+                    Console.Write($"Введите {i + 1} вещественное число для 2 массива: ");
+                    juggedNumbersArr[1][i] = Convert.ToSingle(Console.ReadLine());
+                }
+                for (int i = 0; i < 4; ++i)
+                {
+                    Console.Write($"Введите {i + 1} вещественное число для 3 массива: ");
+                    juggedNumbersArr[2][i] = Convert.ToSingle(Console.ReadLine());
+                }
+            }
+
+            for (int i = 0; i < juggedNumbersArr.Length; ++i)
+            {
+                for (int j = 0; j < juggedNumbersArr[i].Length; ++j)
+                {
+                    Console.Write("{0, 8}", juggedNumbersArr[i][j]);
+                }
+                Console.WriteLine();
+            }
+
+            Console.ReadKey();
+            Console.Clear();
+
+            // Задание 3d.
+            Console.WriteLine("----------------Задание 3d----------------");
+            var someArr = new int[] { 1, 2, 3 };
+            var someStr = "Ffffffffffff";
+
+            Console.Write("Неявно типизированный массив - ");
+            for (int i = 0; i < someArr.Length; ++i)
+            {
+                Console.Write("{0, 4}", someArr[i]);
+            }
+            Console.WriteLine();
+            Console.WriteLine($"Неявно типизированна строка - {someStr}");
 
             Console.ReadKey();
             Console.Clear();
