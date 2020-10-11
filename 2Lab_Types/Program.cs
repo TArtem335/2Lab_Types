@@ -371,7 +371,13 @@ namespace _2Lab_Types
 
             (int numberFrmTurple, string str1FrmTurple, char charFrmTurple, string str2FrmTurple, ulong ulongFrmTurple) = turpleVariable;
             var (numberFrmTurple2, str1FrmTurple2, charFrmTurple2, str2FrmTurple2, ulongFrmTurple2) = turpleVariable;
-            int numberFrmTurple3 = turpleVariable.Item1;
+            int numberFrmTurple3;
+            string str1FrmTurple3;
+            char charFrmTurple3;
+            string str2FrmTurple3;
+            ulong ulongFrmTurple3;
+            (numberFrmTurple3, str1FrmTurple3, charFrmTurple3, str2FrmTurple3, ulongFrmTurple3) = turpleVariable;
+            (numberFrmTurple3, _, _, str2FrmTurple3, _) = turpleVariable;
 
             (int, string, char, string, ulong) turpleVariable2 = turpleVariable;
             (int, string, char, string, ulong) turpleVariable3 = (6, "Dsdffs", 'g', "sfdsfs", 924242535);
@@ -408,6 +414,50 @@ namespace _2Lab_Types
 
             Console.ReadKey();
             Console.Clear();
+
+            // Задание 5.
+            Console.WriteLine("----------------Задание 5----------------");
+            int[] someArrForFunc = { 3, 5, 6, 4, 2, 43, 5, 0, 1 };
+            string someStringForFunc = "Hsd ksdjjsh sjkdhj skjdhsd";
+            Console.Write($"Массив - ");
+            for (int i = 0; i < someArrForFunc.Length; ++i)
+            {
+                Console.Write(someArrForFunc[i] + " ");
+            }
+            Console.WriteLine();
+            Console.WriteLine($"Строка - {someStringForFunc}");
+            (int max, int min, int summ, char letter) = someFunc(someArrForFunc, someStringForFunc);
+            Console.WriteLine($"Максимальный элемент массива - {max}\n" +
+                $"Минимальный элемент массива - {min}\n" +
+                $"Сумма элементов массива - {summ}\n" +
+                $"Первый символ строки - {letter}");
+
+            Console.ReadKey();
+            Console.Clear();
+        }
+
+        static (int, int, int, char) someFunc(int[] arr, string str)
+        {
+            int max = arr[0];
+            int min = arr[0];
+            int summ = 0;
+            char letter = str[0];
+
+            for (int i = 0; i < arr.Length; ++i)
+            {
+                if (arr[i] > max)
+                {
+                    max = arr[i];
+                }
+                if (arr[i] < min)
+                {
+                    min = arr[i];
+                }
+
+                summ += arr[i];
+            }
+
+            return (max, min, summ, letter);
         }
     }
 }
