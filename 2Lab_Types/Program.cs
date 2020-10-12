@@ -434,6 +434,14 @@ namespace _2Lab_Types
 
             Console.ReadKey();
             Console.Clear();
+
+            // Задание 6.
+            Console.WriteLine("----------------Задание 6----------------");
+            Console.WriteLine($"Используя unchecked - {maxIntNumber2()}");
+            Console.WriteLine($"Используя checked - {maxIntNumber1()}");
+            
+            Console.ReadKey();
+            Console.Clear();
         }
 
         static (int, int, int, char) someFunc(int[] arr, string str)
@@ -458,6 +466,22 @@ namespace _2Lab_Types
             }
 
             return (max, min, summ, letter);
+        }
+
+        static int maxIntNumber1()
+        {
+            int seven = 7;
+            int number = checked(2_147_483_647 + seven);
+
+            return number;
+        }
+
+        static int maxIntNumber2()
+        {
+            int seven = 7;
+            int number = unchecked(2_147_483_647 + seven);
+
+            return number;
         }
     }
 }
